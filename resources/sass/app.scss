@@ -478,6 +478,20 @@ ul.nav-list {
     color: #222529;
     font-size: 13px;
 }
+ul.lang-list-open li a:after,ul.currency-list-open li a:after,.category-menu nav ul li .mega-menu li ul li a:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #0c55aa;
+    transition: width .3s;
+}
+ul.lang-list-open li a:hover,ul.currency-list-open li a:hover{
+    color: #0c55aa;
+}
+ul.lang-list-open li a:hover:after,ul.currency-list-open li a:hover:after,.category-menu nav ul li .mega-menu li ul li a:hover:after {
+    width: 100%;
+}
 .fa-bars {
     font-size: 28px;
 }
