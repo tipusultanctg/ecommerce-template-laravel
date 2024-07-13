@@ -108,13 +108,8 @@ if($('.main-menu-content').length && $('.main-menu-mobile').length){
             self.parent().toggleClass("expanded");
             self.parent().parent().addClass("dropdown-opened").siblings().removeClass("dropdown-opened");
             self.parent().parent().children(".submenu").slideToggle();
-
-
         });
 
     });
 }
 
-$(".category-menu-toggle").on("click", function () {
-    $(".category-menu > nav > ul").slideToggle();
-});
