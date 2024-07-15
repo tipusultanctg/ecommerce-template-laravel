@@ -16,12 +16,12 @@
             align-items: center;
         }
 
-        .swiper-slide img {
+       /* .swiper-slide img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
+        }*/
     </style>
     <!-- slider area start -->
     <section class="slider-area">
@@ -31,36 +31,65 @@
                     <div class="swiper mySwiper swiper-container">
                         <div class="swiper-wrapper">
                             <div class="slider-item swiper-slide d-flex justify-content-start"
-                            style="background-image: url({{ asset('assets/images/slider/slider-2.jpg') }});background-position: center center;
-    background-size: cover;">
+                            style="background-image: url({{ asset('assets/images/slider/slider1.png') }});background-position: center center;background-size: cover;">
                                 <div class="slider-content">
-                                    <span>New Arrivals 2023</span>
-                                    <h2 class="slider-title">The Clothing Collection</h2>
+                                    <div class="slider-headline">New Arrivals 2023</div>
+                                    <h2  class="slider-title">The Clothing Collection</h2>
                                     <div class="slider-btn">
                                         <a href="shop.html" class="btn btn-border btn-warning rounded-0">Shop Collection</a>
                                     </div>
                                 </div>
+                                <div class="slider-thumb">
+                                    <img src="{{ asset('assets/images/slider/women-1.png') }}" alt="">
+                                </div>
                             </div>
                             <div class="slider-item swiper-slide grey-bg-5 d-flex justify-content-start"
-                                 style="background-image: url({{ asset('assets/images/slider/slider-1.jpg') }});background-position: center center;
-    background-size: cover;">
+                                 style="background-image: url({{ asset('assets/images/slider/slider2.png') }});background-position: center center;background-size: cover;">
                                 <div class="slider-content">
-                                    <span>Best Selling 2023</span>
+                                    <div class="slider-headline">Best Selling 2023</div>
                                     <h2 class="slider-title">The Summer Collection</h2>
                                     <div class="slider-btn">
                                         <a href="shop.html" class="btn btn-warning rounded-0">Shop Collection</a>
                                     </div>
                                 </div>
+                                <div class="slider-thumb">
+                                    <img src="{{ asset('assets/images/slider/women-2.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="slider-item swiper-slide grey-bg-5 d-flex justify-content-start"
+                                 style="background-image: url({{ asset('assets/images/slider/slider3.png') }});background-position: center center;background-size: cover;">
+                                <div class="slider-content">
+                                    <div class="slider-headline">Best Selling 2023</div>
+                                    <h2 class="slider-title">The Summer Collection</h2>
+                                    <div class="slider-btn">
+                                        <a href="shop.html" class="btn btn-warning rounded-0">Shop Collection</a>
+                                    </div>
+                                </div>
+                                <div class="slider-thumb">
+                                    <img src="{{ asset('assets/images/slider/women-3.png') }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- If we need navigation buttons -->
+                        <div class="slider-navigation">
+                            <div class="swiper-arrow swiper-prev">
+                                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/></svg>
+                            </div>
+                            <div class="swiper-arrow swiper-next">
+                                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
                             </div>
                         </div>
                         <div class="swiper-dot slider-2-dot"></div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="banner-1">
+                    <div class="side-banner">
                         <img src="{{ asset('assets/images/banner/350x200.png') }}" class="img-fluid" alt="">
                     </div>
-                    <div class="banner-2 mt-4">
+                    <div class="side-banner mt-4">
                         <img src="{{ asset('assets/images/banner/350x200.png') }}" class="img-fluid" alt="">
                     </div>
                 </div>
@@ -122,7 +151,14 @@
         </div>
     </section>
     <!-- Banner Area end -->
+@include('partials.product-banner')
+    <div class="empty-space-100"></div>
+    @include('partials.category-products')
+    <div class="empty-space-100"></div>
+    @include('partials.call-to-action')
 
+    <div class="empty-space-100"></div>
+    @include('partials.featured-slider')
     <!-- Category Start -->
     <scetion>
         <div class="container">
@@ -212,7 +248,7 @@
     <!-- Category end -->
 
     <!-- All Products start -->
-    <section">
+    <section>
         <div class="container">
             <div class="products-section my-5 py-5">
                 <div class="section-title">
@@ -604,17 +640,30 @@
         </div>
     </section>
     <!-- All Products end -->
+
+    @include('partials.features')
 @endsection
 @section('scripts')
     <script>
         var swiper = new Swiper(".mySwiper", {
-            direction: "vertical",
+            direction: 'vertical',
+            effect: "fade",
+            loop: true,
+
+            // If we need pagination
             pagination: {
-                el: ".swiper-pagination",
+                el: '.swiper-pagination',
                 clickable: true,
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-next',
+                prevEl: '.swiper-prev',
             },
         });
     </script>
+
     <script type="module">
         $(document).ready(function() {
             const announcements = [

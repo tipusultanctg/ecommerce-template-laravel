@@ -1,10 +1,6 @@
 // Default Laravel bootstrapper, installs axios
 import './bootstrap';
-
-// Added: Actual Bootstrap JavaScript dependency
 import 'bootstrap';
-
-// Added: Popper.js dependency for popover support in Bootstrap
 import '@popperjs/core';
 
 import jQuery from 'jquery';
@@ -113,3 +109,40 @@ if($('.main-menu-content').length && $('.main-menu-mobile').length){
     });
 }
 
+
+var slider = new Swiper('.featured-slider-active', {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    loop: true,
+    enteredSlides: false,
+    pagination: {
+        el: ".featured-slider-dot",
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + '<button>' + (index + 1) + '</button>' + "</span>";
+        },
+    },
+    // Navigation arrows
+    navigation: {
+        nextEl: ".featured-slider-button-next",
+        prevEl: ".featured-slider-button-prev",
+    },
+
+    breakpoints: {
+        '1200': {
+            slidesPerView: 3,
+        },
+        '992': {
+            slidesPerView: 3,
+        },
+        '768': {
+            slidesPerView: 2,
+        },
+        '576': {
+            slidesPerView: 1,
+        },
+        '0': {
+            slidesPerView: 1,
+        },
+    },
+});
